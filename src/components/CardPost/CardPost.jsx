@@ -11,10 +11,15 @@ export default function CardPost({ p }) {
                 <h4>{p.title}</h4>
                 <p className="text-secondary-emphasis mt-2">{p.content.substring(0, 100)}...</p>
                 <div className={`d-flex align-items-center mt-3 gap-3`}>
-                    <button className="btn btn-outline-success p-1">Read more</button>
-                    <i className={`fas fa-bookmark ${feedStyle.fa_bookmark}`}></i>
+                    {p.published ? (
+                        <>
+                            <button className="btn btn-outline-success p-1">Read more</button>
+                            <i className={`fas fa-bookmark ${feedStyle.fa_bookmark}`}></i>
+                        </>
+                    ) : (<p>Not published yet</p>)}
+
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
