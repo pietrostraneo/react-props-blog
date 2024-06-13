@@ -1,5 +1,6 @@
 import postStyle from './CardPost.module.scss'
 import feedStyle from '../Feed/Feed.module.scss'
+import { Link } from 'react-router-dom'
 
 export default function CardPost({ p }) {
     return (
@@ -13,7 +14,7 @@ export default function CardPost({ p }) {
                 <div className={`d-flex align-items-center mt-3 gap-3`}>
                     {p.published ? (
                         <>
-                            <button className="btn btn-outline-success p-1">Read more</button>
+                            <Link to={`/post/${p.slug}`}><button className="btn btn-outline-success p-1">Read more</button></Link>
                             <i className={`fas fa-bookmark ${feedStyle.fa_bookmark}`}></i>
                         </>
                     ) : (<p>Not published yet</p>)}

@@ -21,7 +21,7 @@ export default function Header() {
                         <ul className="list-unstyled d-flex gap-2 justify-content-center align-items-center">
                             <li><i className={`fas fa-magnifying-glass ${styleHeader.buttons}`}></i></li>
                             <li><Link to="/latest" className='text-white text-decoration-none'><i className={`fas fa-bookmark ${styleHeader.buttons}`}></i></Link></li>
-                            <li><i className={`fas fa-user ${styleHeader.buttons}`}></i></li>
+                            <li><Link to="/login"><i className={`fas fa-user ${styleHeader.buttons}`}></i></Link></li>
                         </ul>
                     </div >
                 </div>

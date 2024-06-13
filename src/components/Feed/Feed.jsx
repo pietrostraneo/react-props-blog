@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import feedStyle from './Feed.module.scss';
-import Loader from '../Loader/Loader';
+import Jumbotron from '../Jumbotron/Jumbotron.jsx'
+import Tag from '../Tag/Tag.jsx'
+import Loader from '../Loader/Loader.jsx';
 import axios from 'axios';
+
 
 import CardPost from '../CardPost/CardPost';
 
@@ -25,7 +28,12 @@ export default function Feed() {
 
     return (
         <>
-            <div className="container">
+
+            <Jumbotron />
+
+            <Tag />
+
+            <div className="container slide-in-bottom">
                 <div className="row mt-4 justify-content-center text-white">
 
                     <div className="col-12 col-md-8 mb-4">
