@@ -1,4 +1,5 @@
 import styleHeader from './Header.module.scss';
+import { Link } from "react-router-dom";
 
 export default function Header() {
     return (
@@ -12,14 +13,14 @@ export default function Header() {
 
                     <div className="nav d-flex gap-4 align-items-center">
                         <ul className="list-unstyled d-flex gap-5 justify-content-center align-items-center">
-                            <li>Home</li>
-                            <li>Latest</li>
-                            <li>Contacts</li>
-                            <li>About us</li>
+                            <li><Link to="/" className='text-white text-decoration-none'>Home</Link></li>
+                            <li><Link to="/latest" className='text-white text-decoration-none'>Latest</Link></li>
+                            <li><Link to="/contacts" className='text-white text-decoration-none'>Contacts</Link></li>
+                            <li><Link to="/about" className='text-white text-decoration-none'>About us</Link></li>
                         </ul>
                         <ul className="list-unstyled d-flex gap-2 justify-content-center align-items-center">
                             <li><i className={`fas fa-magnifying-glass ${styleHeader.buttons}`}></i></li>
-                            <li><i className={`fas fa-bookmark ${styleHeader.buttons}`}></i></li>
+                            <li><Link to="/latest" className='text-white text-decoration-none'><i className={`fas fa-bookmark ${styleHeader.buttons}`}></i></Link></li>
                             <li><i className={`fas fa-user ${styleHeader.buttons}`}></i></li>
                         </ul>
                     </div >
