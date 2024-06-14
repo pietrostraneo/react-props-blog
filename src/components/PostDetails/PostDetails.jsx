@@ -7,9 +7,6 @@ export default function PostDetails() {
     const { slug } = useParams()
     const [post, setPost] = useState(null)
 
-    const date = new Date(post.createdAt)
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    const formattedDate = new Intl.DateTimeFormat('en-US', options).format(date);
 
     useEffect(() => {
         async function fetchPost() {
@@ -27,6 +24,14 @@ export default function PostDetails() {
 
     }, [slug])
 
+    function getFormattedDate(p) {
+        const date = new Date(p.createdAt)
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        const formattedDate = new Intl.DateTimeFormat('en-US', options).format(date);
+        return formattedDate
+    }
+
+
     return (
         <>
             {post && (
@@ -40,7 +45,7 @@ export default function PostDetails() {
                                     <section>
                                         <h2 className={`fw-bold`}>{post.title}</h2>
                                         <p className={`${postStyle.sub_color}`}>by {post.User.username}</p>
-                                        <p className={`${postStyle.sub_color}`}>{formattedDate}</p>
+                                        <p className={`${postStyle.sub_color}`}>{getFormattedDate(post)}</p>
 
                                     </section>
 

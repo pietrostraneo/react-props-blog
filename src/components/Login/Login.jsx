@@ -1,8 +1,27 @@
 import loginStyle from './Login.module.scss'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios';
 
 export default function Login() {
+    const handleSubmit = async (event) => {
+        event.preventDefault(); // Previene il comportamento di default del form
+
+        const formData = {
+            email: event.target.email.value,
+            password: event.target.password.value
+        };
+
+        try {
+            const response = await axios.post('http://localhost:3000/auth/login', formData);
+
+            console.log('Login success:', response.data);
+            // Gestisci la risposta o reindirizza l'utente alla dashboard, ecc.
+        } catch (error) {
+            console.error('Error during login:', error);
+            // Gestisci l'errore, ad esempio mostrando un messaggio all'utente
+        }
+    };
     return (
         <>
             <div className="container">
@@ -13,7 +32,7 @@ export default function Login() {
                     </div>
 
                     <div className="col-12 col-md-8">
-                        <form action="http://localhost:3000/auth/login" method="post">
+                        <form onSubmit={handleSubmit} action="http://localhost:3000/auth/login" method="post">
 
                             <div className='mb-3'>
                                 <label htmlFor="email" className='text-white fw-medium d-block mb-2'>Email</label>
@@ -29,7 +48,6 @@ export default function Login() {
 
                             <div className="sign-up">
                                 <p className={`${loginStyle.sub_color}`}>Don't you have an account? <Link to="/sign-up">Sign Up</Link></p>
-
                             </div>
 
                         </form>
